@@ -1,0 +1,96 @@
+#contact {
+    .row.lower-contact {
+        input,
+        span,
+        label,
+        textarea { width : 100% ; }
+
+        input,
+        textarea {
+            border : solid $grey 5px ;
+            border-radius: 5px ;
+            outline-color : $green;
+            @include sous-titre-ds($green);
+            font-size : 20px ;
+            &:hover { border : solid $green 5px ; }
+        }
+
+        textarea:not(:placeholder-shown) ,
+        input:not(:placeholder-shown) { border-color: $green; }
+
+
+        input:focus,
+        textarea:focus{ box-shadow : 0 0 0 0.2rem rgba(0,158,0, 0.25); }
+
+        .leaflet-pane.leaflet-map-pane {
+            z-index  : 1 !important ;
+        }
+        .contact-form {
+            .wpcf7-submit {
+                @include button-primary();
+                width : 50% ;
+                @media only screen and (max-width : $media-sm ) { width : 100% ; }
+            }
+
+        label {
+            @include sous-titre-ds($grey);
+            font-size : 1.3em ;
+            margin : 0 ;
+            cursor : pointer ;
+            &:hover { color : $green }}
+
+        }
+        a { text-decoration: none ; }
+        ul {
+            list-style : none ;
+            padding: 0 ;
+            margin: 0 ;
+            margin-bottom : 2em ;
+        }
+        ul li {
+            cursor : pointer ;
+            padding : none ;
+            margin-top : 1.3em ;
+            margin-bottom : 1.3em ;
+            @include sous-titre-ds($grey);
+            font-size : 1.3em ;
+            &:hover {
+                color : $green ;
+            }
+        }
+
+        span { @include titre-rb(); }
+
+        .wpcf7 { margin-top : 1.3em ; }
+        .wpcf7-form-control-wrap {
+            @include sous-titre-rb($secondary);
+            font-size : 8px ;
+        }
+    }
+
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    #mapId {
+        margin : 4em auto ;
+        border-radius : 15px ;
+        height : 400px ;
+        position : relative ;
+        margin-bottom : 0 ;
+        .leaflet-control {
+            z-index : 405 ;
+            * { z-index : 406 ; }
+        }
+    }
+    .notice-box {
+    height : 40px ;
+    @include sous-titre-rb($secondary);
+    width :100% ;
+    margin-bottom : 2em ;
+    .notice { opacity: .6; }
+    }
+
+    #notice { margin-top : 2em ; }
+
+}

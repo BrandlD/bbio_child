@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Roboto');
+
+
+//var et style
+//size
+$media-sm : 576px;
+$media-md : 768px;
+$media-lg : 992px;
+$media-xl : 1200px;
+//colors
+$green : #009E00;
+$grey  : #414141;
+//$secondary : #E9C6AF;
+$secondary : #dc3545;
+$white : #FFFFFF;
+$text-secondary : $white;
+//carac
+@mixin titre-rb() {
+  font-family : 'Roboto', monospace ;
+  font-size : 2.5em ;
+  font-weight: bold ;
+  font-style: italic;
+  color: $green ;
+  @media screen and (max-width: $media-sm) { font-size: 2em  ; }
+}
+
+@mixin titre-ds($color) {
+  font-family : 'Dancing Script', monospace ;
+  font-size : 2.5em ;
+  font-weight: bold ;
+  color: $color ;
+}
+
+@mixin sous-titre-rb($color) {
+  font-family : 'Roboto', monospace ;
+  font-size : 1.2em ;
+  font-weight: bold ;
+  color: $color ;
+}
+
+
+@mixin sous-titre-ds($color) {
+  font-family : 'Dancing Script', monospace ;
+  font-size : 1.6em ;
+  font-weight: normal ;
+  color: $color ;
+  line-height : 1.1em ;
+}
+
+@mixin button-primary() {
+  border : none ;
+  background :  $green ;
+  color : $white ;
+  padding :  10px 45px ;
+  -webkit-box-shadow: 0px 20px 47px -5px rgba(0,0,0,0.45);
+  -moz-box-shadow: 0px 20px 47px -5px rgba(0,0,0,0.45);
+  box-shadow: 0px 20px 47px -5px rgba(0,0,0,0.45);
+  -webkit-transition: -webkit-transform .5s ease;
+  -moz-transition: -moz-transform .5s ease;
+  -o-transition: -o-transform .5s ease;
+  -ms-transition: -ms-transform .5s ease;
+  transition: transform 1s ease;
+  cursor :pointer ;
+  &:hover { transform: translateY(-5px); }
+  @include sous-titre-rb($white);
+  border-radius : 5px ;
+}
+
+@mixin button-secondary() {
+  border : none ;
+  background :  $secondary ;
+  @include sous-titre-rb($text-secondary);
+  padding :  10px 35px ;
+  -webkit-transition: -webkit-transform .5s ease;
+  -moz-transition: -moz-transform .5s ease;
+  -o-transition: -o-transform .5s ease;
+  -ms-transition: -ms-transform .5s ease;
+  transition: transform 1s ease;
+  -webkit-box-shadow: 0px 20px 47px -5px rgba(0,0,0,0.45);
+  -moz-box-shadow: 0px 20px 47px -5px rgba(0,0,0,0.45);
+  box-shadow: 0px 20px 47px -5px rgba(0,0,0,0.45);
+  cursor :pointer ;
+  &:hover { transform: translateY(-5px); }
+  border-radius : 5px ;
+}
+
+
+
+@import './common/helper.scss';
+@import './common/navbar.scss';
+@import './common/footer.scss';
+
+//front styling
+@import './front/header.scss';
+@import './front/navbar.scss';
+@import './front/steps.scss';
+@import './front/about.scss';
+@import './front/testimonials.scss';
+@import './front/blogs.scss';
+
+//styling for art and contact only
+@import './misc/article.scss';
+@import './misc/contact.scss';
+
+//styling the woocommerce
+@import './woocommerce/main.scss';
+
+.mhidden { @media screen and (max-width: $media-sm) { display: none !important ;} }

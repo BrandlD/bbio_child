@@ -1,0 +1,15 @@
+#about {
+    .row {
+        .text-about {
+            display :flex ;
+            flex-direction : column ;
+            justify-content : center;
+            @media only screen and (max-width : $media-sm) {
+                text-align : center !important;
+            }
+        }
+        margin-top : 6em ;
+        h3 {@include titre-rb();}
+        p { @include sous-titre-ds($grey);}
+    }
+}

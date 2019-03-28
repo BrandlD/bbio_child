@@ -1,0 +1,89 @@
+nav#site-navigation {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  z-index:  801;
+  top : 0 ;
+  height : 8vh ;
+  padding : 0 25px !important ;
+  background-color : $green ;
+  -webkit-transition: all 800ms ease-out;
+  -moz-transition: all 800ms ease-out;
+  -o-transition: all 800ms ease-out;
+  transition: all 800ms ease-out;
+  a { @include sous-titre-ds($white); height : 100% ;}
+  a.link-unstyled {
+    cursor : pointer ;
+    display : flex ;
+    justify-content:center ;
+    align-items: center  ;
+    margin : 0 ;
+  }
+  img.custom-logo {
+    z-index:  803;
+    height : 6vh ;
+    top : 1vh  ;
+    left : 10px ;
+    position : fixed ; }
+
+  @media screen and (min-width  : $media-sm) {
+    div#primary-menu-wrap { height : 100% ;  }
+    ul { height : 100% ; justify-content: center ; }
+    li { height : 100% ; }
+    a  { // make the link center for every ul size
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin :0 ;
+      padding :0 ;
+    }
+    a:hover { border-bottom  : 5px solid $green; }
+    ul#primary-menu {
+      margin : auto 30px !important ;
+    }
+
+    .collapse { height :100% ; }
+    .nav-item.dropdown.menu-item { position:static !important; }
+    //font drop
+    .dropdown-menu { a { @include sous-titre-ds($text-secondary); } }
+    //get rid of small triangle for dropdown
+    .nav-link.dropdown-toggle::after { display : none ;  }
+    //overall look of the dropdown
+    .dropdown-menu:hover ,
+    .dropdown:hover >.dropdown-menu {
+      a { height : 100% ; }
+      position : absolute;
+      font-size : .8em ;
+      height : 90% ;
+      width : 100% ;
+      top : 85% ;
+      z-index:  802;
+      left : 0 ;
+      margin : 0 ;
+      border-radius : 0 ;
+      background-color : $secondary ;
+      border : solid 2px $secondary ;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      text-align: center;
+    }
+  }
+
+  .dropdown-menu {
+    a:hover { border-bottom  : none ; }
+  }
+  i {
+    color : $white ;
+    font-size : 1.5rem ;
+    position : relative ;
+    span {
+      bottom : 60%;
+      left : 90%;
+      font-size : .5em !important;
+      position: absolute;
+      color : $white ;
+    }
+  }
+
+}

@@ -1,0 +1,32 @@
+#article {
+    img.main-img {
+        width : 100% ;
+        height : auto ;
+    }
+    h1 {
+        margin : 1em  auto ;
+        @include titre-ds($secondary);
+        font-size : 2.5em;
+    }
+    p {
+        @include sous-titre-rb($grey);
+    }
+    .btn-container {
+        margin-top : 1em ;
+        width : 100% ;
+        display : flex ;
+        justify-content : space-between ;
+        flex-wrap : wrap;
+        a.btn-pagination {
+            @include button-secondary();
+            @media only screen and (max-width : $media-sm) {
+                margin : 1em auto  ;
+            }
+            margin-top : 1em ;
+        }
+
+    }
+
+
+
+}

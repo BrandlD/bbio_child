@@ -1,0 +1,7 @@
+nav#site-navigation.not-top {
+        width : 95vw ;
+        margin : auto ;
+        transform : translateY(-4vh) ;
+        border-radius : 10px ;
+        .dropdown-menu { border-radius : 0 0 10px 10px !important ; }
+}

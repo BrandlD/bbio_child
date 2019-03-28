@@ -1,0 +1,60 @@
+#steps {
+    margin :auto ;
+    margin-top : 4rem ;
+    display : flex ;
+    position : relative ;
+    .col {
+        margin-top: 2em ;
+        cursor : pointer ;
+        &:hover { transform :translateY(-10px) ; }
+        transition : all 1s ease-out ;
+        display : flex ;
+        flex-direction: column ;
+        justify-content :flex-end;
+        text-align : center ;
+        .illustration-box {
+            margin : auto ;
+            background:  red ;
+            width : 60% ;
+            background : $white ;
+            display : flex ;
+            flex-direction : column ;
+            justify-content : flex-end;
+            overflow: hidden ;
+
+        }
+    }
+    .card-titre { @include titre-ds($grey) ; }
+    .card-sous-titre {
+        @include sous-titre-ds($grey) ;
+        height : 120px ;
+    }
+}
+
+#cat-steps {
+    margin : auto;
+    margin-top : 4em ;
+    display : flex ;
+    justify-content : center ;
+    flex-wrap: wrap;
+    p {
+        @include titre-ds($grey);
+        min-width :50% ;
+        text-align : right;
+        padding  : 0 15px ;
+        margin : 0 ;
+        @media screen and (max-width: $media-sm) { text-align : center ; }
+
+    }
+    .btn-box {
+        display : flex ;
+        align-content : flex-end ;
+        min-width :50% ;
+        padding  : 0 15px ;
+        button {
+            @include button-secondary();
+            @include sous-titre-rb($white);
+        }
+    }
+
+}
