@@ -5,9 +5,10 @@
 
 
 
-<div class="card-columns">
-<?php
-if ( woocommerce_product_loop() ) {
+<?php if ( woocommerce_product_loop() ) { ?>
+
+    <div class="card-columns">
+    <?php
 
 	if ( wc_get_loop_prop( 'total' ) ) {
 		while ( have_posts() ) {
@@ -16,41 +17,23 @@ if ( woocommerce_product_loop() ) {
 		}
 	}
 
-    ?> </div> <?php
+
+    ?>
+    </div>
+    <?php
 	woocommerce_product_loop_end();
 	do_action( 'woocommerce_after_shop_loop' );
-
-} else {
-
-	do_action( 'woocommerce_no_products_found' );
-    ?> </div> <?php
-}
-
-/**
- * Hook: woocommerce_after_main_content.
- *
- * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
- */
-
-?>
+    ?>
 
 
-<!-- end the product layout  -->
+<?php } else { do_action( 'woocommerce_no_products_found' ); } ?>
+
+
 <!-- end the container  -->
 </div>
-<?php
-do_action( 'woocommerce_after_main_content' );
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-
-
-
-get_footer( 'shop' );
-?>
+<?php do_action( 'woocommerce_after_main_content' ); ?>
+<?php get_footer( 'shop' ); ?>
 
 
 <?php

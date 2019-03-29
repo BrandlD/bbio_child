@@ -40,3 +40,24 @@ acf_add_options_page(array(
     'menu_slug'     => 'theme-general-settings',
     'icon_url'      => 'dashicons-images-alt2',
 ));
+
+
+
+//add_action( 'init', 'register_supplement_product_type' );
+//add_filter( 'product_type_selector', 'remove_product_types' );
+
+//function register_supplement_product_type() {
+    //class WC_Product_Supplement extends WC_Product {
+        //public function __construct( $product ) {
+            //$this->product_type = 'Supplement';
+            //parent::__construct( $product ); } } }
+
+//function remove_product_types( $types ){
+	////unset( $types['grouped'] );
+	//unset( $types['external'] );
+	//unset( $types['variable'] );
+    //$types[ 'simple' ] = __( 'Supplementaire', 'dm_product' );
+    //$types[ 'grouped' ] = __( 'Panier', 'dm_product' );
+
+	//return $types;
+//}

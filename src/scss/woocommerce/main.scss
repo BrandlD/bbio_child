@@ -116,6 +116,7 @@ nav.woocommerce-breadcrumb ,
 
 }
 
+.woocommerce-info { margin-top : 25px ;}
 .woocommerce-pagination a,
 .woocommerce-pagination span { @include button-primary(); font-weight : lighter; }
 .woocommerce-pagination span { color : $white !important ; font-weight: bold !important ; }

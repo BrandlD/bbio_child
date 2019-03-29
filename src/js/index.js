@@ -43,24 +43,29 @@ document.addEventListener("DOMContentLoaded",function(){
         //e.preventDefault();
     //});
     let childBtn = Array.from(document.getElementsByClassName('child'))
-    childBtn.map(btn => btn.addEventListener('click', function (e) {
-            let el = e.target.parent ;
-            while ( "child" in e.classList ) {
-                    el = e.parent ;
-                    console.log(e);
+    childBtn.map(btnC => btnC.addEventListener('click', function (e) {
+            let el = e.target.parentNode ;
+            while ( el.classList.contains("child") ) {
+                    el = el.parentNode ;
+                    console.log('parent');
             }
+            console.log('sending');
+            removeItem(el)
         }
     ))
 
     let qtyBtn = Array.from(document.getElementsByClassName('qty-btn'))
-    qtyBtn.map(btn => btn.addEventListener('click', removeItem))
+    qtyBtn.map(btn => btn.addEventListener('click',
+            function(e) { 
+                removeItem(e.target)
+                console.log('sending3');
+            })
+    )
 
-    function removeItem (e) {
-        let ajaxurl = e.target.getAttribute('data-url');
-        let spec_action = e.target.getAttribute('data-action');
-        let theid = e.target.getAttribute('data-item');
-        console.log(e.target.dataset);
-        console.log(theid);
+    function removeItem (el) {
+        let ajaxurl = el.getAttribute('data-url');
+        let spec_action = el.getAttribute('data-action');
+        let theid = el.getAttribute('data-item');
         let restUrl = "action=add_remove&spec_action="+spec_action+"&theid="+theid;
 
         console.log('processed');

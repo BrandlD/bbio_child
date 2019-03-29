@@ -53,11 +53,11 @@ if($_cart_item['product_id'] == get_the_id() ){
 
 
 <?php if ($cart_item_key) : ?> <!-- less sign qty -->
-<span class="">
-<a href="#!"
-        data-item="<?php echo get_the_id() ?>"
-        data-url="<?php echo admin_url('admin-ajax.php'); ?>"
-        data-action="remove" class="qty-btn link-unstyled">-</a>
+<span data-item="<?php echo get_the_id() ?>"
+      data-url="<?php echo admin_url('admin-ajax.php'); ?>"
+      data-action="remove" class="qty-btn " >
+
+<a href="#!" class="child link-unstyled">-</a>
 </span>
 <?php else  : ?>
 <span class="text-muted">-</span>
