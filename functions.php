@@ -41,6 +41,24 @@ acf_add_options_page(array(
     'icon_url'      => 'dashicons-images-alt2',
 ));
 
+//only show the single product I will change the product type after
+//do it wit no overwriting
+add_action( 'woocommerce_product_query', 'simple_products_query' );
+function simple_products_query( $q ) {
+
+   $taxonomy_query = $q->get('tax_query') ; //get current loop query
+
+   //appends the grouped products condition
+   $taxonomy_query['relation'] = 'AND';
+   $taxonomy_query[] = array(
+           'taxonomy' => 'product_type',
+           'field' => 'slug',
+           'terms' => 'simple');
+
+   $q->set( 'tax_query', $taxonomy_query );
+}
+
+
 
 
 //add_action( 'init', 'register_supplement_product_type' );

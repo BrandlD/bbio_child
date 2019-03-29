@@ -1,3 +1,4 @@
+
 <?php global $woocommerce; ?>
 <?php $product = wc_get_product(get_the_id()); ?>
 <?php foreach ( $woocommerce->cart->get_cart() as $_cart_item_key => $_cart_item ) {
@@ -83,14 +84,4 @@ if($_cart_item['product_id'] == get_the_id() ){
 </div> <!-- end of the card  -->
 
 
-<?php
-//$product_quantity = woocommerce_quantity_input( array(
-    //'input_name'   => "cart[{$cart_item_key}][qty]",
-    //'input_value'  => $cart_item['quantity'],
-    //'max_value'    => -1,
-    //'min_value'    => '0',
-    //'product_name' => $product->get_name(),
-//), $product, false );
-
-    //echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.  ?>
 </div>

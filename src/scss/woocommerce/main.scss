@@ -8,22 +8,20 @@ nav.woocommerce-breadcrumb ,
     .card-columns {
         padding-bottom : 2.5em ;
         padding-top : 2.5em ;
-        -webkit-column-count:4;
-        -moz-column-count:4;
-        column-count:4;
-        grid-gap : 6px ;
+        display : flex;
+        flex-wrap: wrap  ;
+        //justify-content : center ;
+
+        .custom-product-card { max-width : calc(25% - 10px); }
         @media only screen and (max-width : $media-sm) {
-            -webkit-column-count:2;
-            -moz-column-count:2;
-            column-count:2;
-        }
+            .custom-product-card { max-width : calc( 50% - 10px ) ; } }
         @media only screen and (max-width : $media-md) {
-            -webkit-column-count:1;
-            -moz-column-count:1;
-            column-count:1;
-        }
+            .custom-product-card { max-width : calc(100% - 10px ); } }
+
         .custom-product-card {
+            box-sizing: margin-box;
             border : none ;
+            margin : 5px ;
             //border : $green solid 5px  ;
             //border-radius : 5px;
             position : relative ;

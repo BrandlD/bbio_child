@@ -4,20 +4,16 @@
 <div id="custom-shop" class="container woocommerce">
 
 
-
 <?php if ( woocommerce_product_loop() ) { ?>
 
     <div class="card-columns">
     <?php
-
 	if ( wc_get_loop_prop( 'total' ) ) {
 		while ( have_posts() ) {
 			the_post();
             wc_get_template_part('custom-product-card');
 		}
 	}
-
-
     ?>
     </div>
     <?php
