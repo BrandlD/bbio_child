@@ -55,7 +55,9 @@ if($_cart_item['product_id'] == get_the_id() ){
 
 
 
-<a href="">
+<a href="<?php echo wc_get_cart_url(); ?>">
 <button class="go-cart"> voir le panier </button>
 </a>
 </div>
+
+<?php

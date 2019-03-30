@@ -1,4 +1,5 @@
 <?php global $woocommerce; ?>
+
 <?php $product = wc_get_product(get_the_id()); ?>
 <?php foreach ( $woocommerce->cart->get_cart() as $_cart_item_key => $_cart_item ) {
 if($_cart_item['product_id'] == get_the_id() ){
@@ -7,14 +8,25 @@ if($_cart_item['product_id'] == get_the_id() ){
 ?>
 
 
+<!-- this one is to change the product reference for the cart item -->
+<?php if(isset($cart_checkout_id) && is_checkout()) { $product = wc_get_product($cart_checkout_id);  ?>
+<?php
+    foreach ( $woocommerce->cart->get_cart() as $_cart_item_key => $_cart_item ) {
+    if($_cart_item['product_id'] == $cart_checkout_id ){
+      $cart_item_key = $_cart_item_key;
+      $cart_item = $_cart_item; } }
+}
+?>
+
+
+
 
 <!-- definition of the card -->
 <div class="card custom-product-card" id="card-<?php echo get_the_id(); ?>" >
 
-
 <!-- definition of the img -->
-<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id($product->ID), 'single-post-thumbnail' );?>
-<a href="<?php echo the_permalink(); ?>" class="link-unstyled"> <img class="card-img-top" src="<?php  echo $image[0]; ?>" data-id="<?php echo $product->ID; ?>" > </a>
+<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id($product->get_id()), 'single-post-thumbnail' );?>
+<a href="<?php echo the_permalink(); ?>" class="link-unstyled"> <img class="card-img-top" src="<?php  echo $image[0]; ?>" data-id="<?php echo $product->get_id(); ?>" > </a>
 
 
 

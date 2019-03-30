@@ -46,6 +46,7 @@ nav.woocommerce-breadcrumb ,
     }
 }
 
+#checkout-cart,
 #supplement-upsale ,
 #custom-shop {
     .center-flex {
@@ -229,3 +230,15 @@ span.onsale { display : none !important ;}
       }
     }
 }
+
+
+
+
+//this is the part for the cart
+.wp-bp-content-width {
+        width : 100%;
+        min-width : 100%;
+    }
+    .col-1 { padding : 0 ; }
+    .woocommerce-billing-fields h3 ,
+    H1.entry-title.h2 { @include titre-rb(); }

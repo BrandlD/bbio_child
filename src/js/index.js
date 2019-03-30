@@ -62,13 +62,13 @@ document.addEventListener("DOMContentLoaded",function(){
         let spec_action = el.getAttribute('data-action');
         let theid = el.getAttribute('data-item');
         let restUrl = "action=add_remove&spec_action="+spec_action+"&theid="+theid;
-        console.log(theid);
         if (document.getElementById("card-"+theid) && theid) {
             document.getElementById("card-"+theid).classList.add('overlay');
         } else if (!document.getElementById("card-"+theid) && theid) {
-            console.log('value');
             document.getElementById("overlay-general").classList.add('overlay');
         }
+        console.log(ajaxurl);
+        console.log(restUrl);
         fetch(ajaxurl, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, cors, *same-origin
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded",function(){
         })
             .then(resp =>  resp.text())
             .then(data => { 
-                location.reload();
+                //location.reload();
             })
             .catch(err => { console.log(err) });
     }
