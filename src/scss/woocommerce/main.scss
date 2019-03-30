@@ -2,9 +2,51 @@
 nav.woocommerce-breadcrumb ,
 .woocommerce-products-header { display: none ; }
 
+@mixin button-woo() {
+    @include button-primary();
+    box-shadow : none ;
+    font-size : 1em ;
+    width : 100% ;
+    margin : 0 ;
+    padding : 15px 5px ;
+    border-radius : 0px ;
+    &:hover { transform : none ; }
+    .button-content {
+        display :flex ;
+        justify-content : space-around ;
+        p.text-button {
+            margin : 0 ;
+            font-size : 1.3em ;
+            line-height : 1.3em ; }
+        .quantity-picker {
+            background : $white ;
+            color : $green ;
+            border-radius : 5px ;
+            width : 20%;
+            margin :0 ;
+            display : flex ;
+            justify-content : center ;
+            padding : 0 ;
+            .quantity-number {
+                    width: 50% ;
+                    vertical-align : middle;
+                    font-size : 1.3em ;  }
+            .quantity-buttons {
+                width: 50% ;
+                display : flex ;
+                flex-direction : column ;
+                span {
+                    line-height : 1em ;
+                    font-size : 1em ;
+                    padding: 0 ;
+                    margin : 0 ;
+                }
+            }
+        }
+    }
+}
 
 #custom-shop {
-
     .card-columns {
         padding-bottom : 2.5em ;
         padding-top : 2.5em ;
@@ -27,46 +69,7 @@ nav.woocommerce-breadcrumb ,
             position : relative ;
             .card-body { padding : 0 ;}
             a:not(.link-unstyled) { width : 100% ; @include button-primary(); }
-            button {
-                @include button-primary();
-                box-shadow : none ;
-                font-size : 1em ;
-                width : 100% ;
-                margin : 0 ;
-                padding : 15px 5px ;
-                border-radius : 0px ;
-                &:hover {
-                    transform : none ;
-                }
-                .button-content {
-                    display :flex ;
-                    justify-content : space-around ;
-                    //align-items :center ;
-                    p.text-button {  margin : 0 ; font-size : 1.3em ; line-height : 1.3em ; }
-                    .quantity-picker {
-                        background : $white ;
-                        color : $green ;
-                        border-radius : 5px ;
-                        width : 20%;
-                        margin :0 ;
-                        display : flex ;
-                        justify-content : center ;
-                        padding : 0 ;
-                        .quantity-number { width: 50% ;  vertical-align : middle; font-size : 1.3em ;  }
-                        .quantity-buttons {
-                            width: 50% ;
-                            display : flex ;
-                            flex-direction : column ;
-                            span {
-                                line-height : 1em ;
-                                font-size : 1em ;
-                                padding: 0 ;
-                                margin : 0 ;
-                            }
-                        }
-                    }
-                }
-            }
+            button { @include button-woo(); }
         }
     }
     .overlay {
@@ -137,6 +140,31 @@ span.onsale { display : none !important ;}
     #tab-description h2 { display : none ; }
     #tab-description p { @include sous-titre-ds($grey); margin-top : 2em ; }
     #tab-description { padding : 0 ; border  : none ; }
-    .entry-summary { @include sous-titre-ds($grey);}
-    section.related.products  { display : none  !important ;}
+    //section.related.products , form.cart { display : none  !important ;}
+    .entry-summary {
+        @include sous-titre-ds($grey);
+        button.go-cart {
+            @include button-secondary();
+            font-size : 16px ;
+            height : 100%;
+        }
+        button.qty-btn {
+            @include button-woo() ;
+            @include button-primary();
+            font-size : 16px ;
+            width : 300px ;
+            border-radius: 5px ;
+            .quantity-number {
+                    min-width: 60% ;
+                    height : 100%;
+                    vertical-align : middle;
+                    line-height : 32px ; }
+        }
+    }
+    @media only screen and (max-width : $media-sm) {
+        .entry-summary { margin-top : 0 ;
+            font-size : 1.3em ;
+            button.qty-btn { width : 100%  !important; }
+        }
+    }
 }
