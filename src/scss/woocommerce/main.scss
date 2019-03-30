@@ -120,3 +120,23 @@ nav.woocommerce-breadcrumb ,
 .woocommerce-pagination span { color : $white !important ; font-weight: bold !important ; }
 .woocommerce-pagination { margin-top : 20px ; width : 100% ;}
 span.onsale { display : none !important ;}
+
+
+
+
+//this one is for the single product page
+
+
+.product-template-default {
+    .wp-bp-content-width {
+        width : 100%;
+        min-width : 100%;
+    }
+    .product_meta { display: none ; }
+    ul.tabs.wc-tabs { display : none ; }
+    #tab-description h2 { display : none ; }
+    #tab-description p { @include sous-titre-ds($grey); margin-top : 2em ; }
+    #tab-description { padding : 0 ; border  : none ; }
+    .entry-summary { @include sous-titre-ds($grey);}
+    section.related.products  { display : none  !important ;}
+}

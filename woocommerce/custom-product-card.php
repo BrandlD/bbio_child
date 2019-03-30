@@ -21,6 +21,7 @@ if($_cart_item['product_id'] == get_the_id() ){
 
 <!-- definition of the body -->
 <div class="card-body">
+
 <button
         data-action="add"
         data-url="<?php echo admin_url('admin-ajax.php'); ?>"
