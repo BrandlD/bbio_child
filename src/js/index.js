@@ -38,28 +38,23 @@ document.addEventListener("DOMContentLoaded",function(){
         })
     })
 
-    //jQuery('div.woocommerce').on('click', 'input.qty', function(){
-        //jQuery("[name='update_cart']").trigger("click");
-        //e.preventDefault();
-    //});
+
+
     let childBtn = Array.from(document.getElementsByClassName('child'))
     childBtn.map(btnC => btnC.addEventListener('click', function (e) {
             let el = e.target.parentNode ;
             while ( el.classList.contains("child") ) {
                     el = el.parentNode ;
-                    console.log('parent');
             }
-            console.log('sending');
-            removeItem(el)
+            if ( el.getAttribute('data-item') != null ) {
+                removeItem(el)
+            }
         }
     ))
 
     let qtyBtn = Array.from(document.getElementsByClassName('qty-btn'))
     qtyBtn.map(btn => btn.addEventListener('click',
-            function(e) { 
-                removeItem(e.target)
-                console.log('sending3');
-            })
+            function(e) { removeItem(e.target) })
     )
 
     function removeItem (el) {
@@ -67,9 +62,13 @@ document.addEventListener("DOMContentLoaded",function(){
         let spec_action = el.getAttribute('data-action');
         let theid = el.getAttribute('data-item');
         let restUrl = "action=add_remove&spec_action="+spec_action+"&theid="+theid;
-
-        console.log('processed');
-        document.getElementById("card-"+theid).classList.add('overlay');
+        console.log(theid);
+        if (document.getElementById("card-"+theid) && theid) {
+            document.getElementById("card-"+theid).classList.add('overlay');
+        } else if (!document.getElementById("card-"+theid) && theid) {
+            console.log('value');
+            document.getElementById("overlay-general").classList.add('overlay');
+        }
         fetch(ajaxurl, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, cors, *same-origin
@@ -82,7 +81,6 @@ document.addEventListener("DOMContentLoaded",function(){
         })
             .then(resp =>  resp.text())
             .then(data => { 
-                console.log(data);
                 location.reload();
             })
             .catch(err => { console.log(err) });

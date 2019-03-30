@@ -1,4 +1,3 @@
-
 <?php global $woocommerce; ?>
 <?php $product = wc_get_product(get_the_id()); ?>
 <?php foreach ( $woocommerce->cart->get_cart() as $_cart_item_key => $_cart_item ) {
@@ -21,7 +20,6 @@ if($_cart_item['product_id'] == get_the_id() ){
 
 <!-- definition of the body -->
 <div class="card-body">
-
 <button
         data-action="add"
         data-url="<?php echo admin_url('admin-ajax.php'); ?>"

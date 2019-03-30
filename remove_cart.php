@@ -13,7 +13,6 @@ add_action( 'wp_ajax_add_remove', 'add_remove' );
 function add_remove() {
     global $woocommerce ;
     $cart = $woocommerce->instance()->cart;
-    echo $cart ;
     $id = $_POST['theid'];
     $action = $_POST['spec_action'];
     $actual = 0 ;
@@ -29,11 +28,12 @@ function add_remove() {
     if ($action == "remove" ) {
         if ($actual > 0) {
             $cart->set_quantity($cart_item_key, $actual - 1 )  ;
-            echo 'removed';
-        } else {
-            echo 'notInCart';
-        }
-    } else  { $cart->add_to_cart( $id,  1 ); }
+        } else { echo 'notInCart'; }
+
+    } else  {
+        $cart->add_to_cart( $id,  1 );
+        echo 'should be added' ;
+    }
 
     die();
 }

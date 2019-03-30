@@ -6,7 +6,7 @@
 
 <?php if ( woocommerce_product_loop() ) { ?>
 
-    <div class="card-columns">
+    <div class="center-flex">
     <?php
 	if ( wc_get_loop_prop( 'total' ) ) {
 		while ( have_posts() ) {

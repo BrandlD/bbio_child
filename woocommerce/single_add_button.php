@@ -1,3 +1,11 @@
+<?php global $woocommerce; ?>
+<?php $product = wc_get_product(get_the_id()); ?>
+<?php foreach ( $woocommerce->cart->get_cart() as $_cart_item_key => $_cart_item ) {
+if($_cart_item['product_id'] == get_the_id() ){
+  $cart_item_key = $_cart_item_key;
+  $cart_item = $_cart_item; } }
+?>
+
 <div class="form-single">
 <button
         data-action="add"
