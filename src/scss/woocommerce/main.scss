@@ -28,7 +28,8 @@ nav.woocommerce-breadcrumb ,
             justify-content : center ;
             padding : 0 ;
             .quantity-number {
-                    width: 50% ;
+                    white-space: nowrap ;
+                    min-width: 50% ;
                     vertical-align : middle;
                     font-size : 1.3em ;  }
             .quantity-buttons {
@@ -138,11 +139,14 @@ span.onsale { display : none !important ;}
         width : 100%;
         min-width : 100%;
     }
+
     h1.product_title.entry-title {
+        margin-top :2em ;
         @include titre-ds($green);
         font-size : 2.5em  !important;
         margin-bottom : 0 ;
     }
+
     p.price { font-size : 22px  !important; }
     .woocommerce-Price-amount.amount {
             text-decoration-color: transparent !important ;
@@ -235,10 +239,151 @@ span.onsale { display : none !important ;}
 
 
 //this is the part for the cart
-.wp-bp-content-width {
+.woocommerce-checkout {
+    .wp-bp-content-width {
         width : 100%;
         min-width : 100%;
     }
-    .col-1 { padding : 0 ; }
+
+    h2.woocommerce-order-details__title ,
+    h3#order_review_heading ,
     .woocommerce-billing-fields h3 ,
-    H1.entry-title.h2 { @include titre-rb(); }
+    H1.entry-title.h2 {
+        @include titre-rb();
+        margin: 20px auto ;
+    }
+
+    .center-flex { padding-top : 0  !important ;}
+
+    #main > article { border : none ; }
+    .custom-product-card {
+        overflow: hidden ;
+        .remove-hover {
+            background : $secondary ;
+            color : $text-secondary;
+            opacity : 0;
+            height : 70px;
+            width : 70px ;
+            display : flex ;
+            justify-content:  flex-end ;
+            align-items:flex-end ;
+            border-radius : 45px ;
+            position:  absolute ;
+            top : -20px ;
+            left : -20px  ;
+            padding :20px ;
+            z-index : 99;
+            font-size  :1.3em ;
+            transition : opacity .3s ease-in ;
+        }
+        &:hover {
+            .remove-hover {
+                opacity : .9;
+                cursor : pointer ;
+            }
+        }
+    }
+    #customer_details {
+        display : flex ;
+        flex-wrap: wrap ;
+    label { display : none ; }
+    }
+    .woocommerce-cart-form { display : none ;}
+    .col-1 .col-2 , { padding : 0 ; }
+    .col-1, .col-2, .woocommerce-billing-fields h3 {
+        min-width : 100% ;
+        display : flex;
+    }
+    .cart-subtotal ,
+    .woocommerce-shipping-totals.shipping,
+    .wc_payment_methods ,
+
+    .woocommerce-billing-fields__field-wrapper,
+    .woocommerce-additional-fields,
+    .woocommerce-billing-fields,
+    .form-row,
+    input,
+    span,
+    textarea { width : 100% ; }
+
+    .woocommerce-additional-fields__field-wrapper ,
+    .woocommerce-billing-fields__field-wrapper {
+        display : flex ;
+        flex-wrap : wrap ;
+        flex-direction : row ;
+        justify-content : space-between;
+        @media only screen and (min-width : $media-md ) {
+            #order_comments_field,
+            p { flex: 2 0 auto;  width : 100%; }
+            #billing_postcode_field ,
+            #billing_city_field ,
+            #billing_first_name_field ,
+            #billing_last_name_field {
+                max-width : 50% ;
+                //flex: 1 0 auto;
+                box-sizing: border-box !important;
+            }
+        }
+    }
+
+    input,
+    textarea {
+        box-sizing: border-box !important;
+        border : solid $grey 5px ;
+        border-radius: 5px ;
+        outline-color : $green;
+        @include sous-titre-ds($green);
+        font-size : 20px ;
+        &:hover { border : solid $green 5px ; }
+    }
+
+    textarea:not(:placeholder-shown) ,
+    input:not(:placeholder-shown) { border-color: $green; }
+
+
+    input:focus,
+    textarea:focus{ box-shadow : 0 0 0 0.2rem rgba(0,158,0, 0.25); }
+
+    a { text-decoration: none ; }
+
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+
+    .wc_payment_method,
+    #billing_country_field,
+    #shipping_country_field { display : none ;}
+
+
+    input[type="checkbox"] {
+        background-color :  red;
+        height : 20px;
+        width : 20px;
+        color : $green ;
+    }
+
+    .woocommerce-terms-and-conditions-checkbox-text,
+    .woocommerce-privacy-policy-text {
+        @include sous-titre-ds($grey);
+        a.woocommerce-terms-and-conditions-link { color :$secondary ; }
+        a { color :$secondary ; }
+        font-size : 16px ;
+        width: 50%;
+        @media only screen and ( max-width : $media-sm ) {
+            width: 100%;
+        }
+    }
+
+    button#place_order {
+        @include button-primary();
+        &:hover { background-color : $green !important ; }
+        @media only screen and ( max-width : $media-sm ) {
+            margin : auto ;
+        }
+
+    }
+
+
+    footer.entry-footer { display : none ;}
+}

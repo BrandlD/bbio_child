@@ -87,3 +87,58 @@ nav#site-navigation {
   }
 
 }
+
+
+//tackling the mobile menu I have
+@media only screen and (max-width : $media-sm ) {
+  #primary-menu { height : 100%; }
+  .nav-link.dropdown-toggle::after { display : none ;  }
+  nav#site-navigation {
+    padding : 0  15px !important ;
+    display : flex ;
+    justify-content : space-between  ;
+  }
+
+  img.custom-logo { position : relative !important ; }
+
+  #primary-menu-wrap {
+    a {
+      padding-left : 30px ;
+      text-align : left ;
+      height : auto !important;
+      color : $secondary !important;
+      font-weight : bold !important ;
+      position : relative ;
+    }
+    a:before {
+      content : "—   " ;
+      height : 100% ;
+      top: 0;
+      bottom :0;
+      color:  $grey  ;
+      opacity:  .5;
+    }
+    li > ul { display : none ;}
+    li {
+      display : flex ;
+      align-items : center;
+    }
+    text-align :left ;
+    opacity : 0 ;
+    width : 100% ;
+    min-height : 100%;
+    position : absolute ;
+    top : 100% ;
+    height : calc( 100vh - 100%) ;
+    left : 0 ;
+    right : 0 ;
+    transition : opacity .4s ease-in ;
+    background : rgba($white , .9);
+  }
+  #primary-menu-wrap.show { opacity : 1 ; }
+  .navbar-toggler { cursor : pointer ; }
+
+
+
+
+}

@@ -26,7 +26,7 @@ if( $posts ): ?>
 </div>
 
 <div class="button-box">
- <a class="link-unstyled" href="<?php the_permalink(); ?>">Lire Plus</a>
+ <a class="" href="<?php the_permalink(); ?>">Lire Plus</a>
 </div>
         </div>
 

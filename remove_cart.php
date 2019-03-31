@@ -29,10 +29,12 @@ function add_remove() {
         if ($actual > 0) {
             $cart->set_quantity($cart_item_key, $actual - 1 )  ;
         } else { echo 'notInCart'; }
-
-    } else  {
+    }
+    else if ($action == "delete") {
+        $cart->set_quantity($cart_item_key, 0);
+    }
+    else  {
         $cart->add_to_cart( $id,  1 );
-        echo 'should be added' ;
     }
 
     die();

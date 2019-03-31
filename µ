@@ -35,8 +35,8 @@ if ( is_wc_endpoint_url( 'order-received' ) ) return;
      $fields['billing']['billing_company']['placeholder'] = 'Nom de la société (optionnel)';
      $fields['billing']['billing_postcode']['placeholder'] = 'Code postal';
      $fields['billing']['billing_phone']['placeholder'] = 'Téléphone';
-     $fields['billing']['billing_city']['placeholder'] = 'Ville (optionnel)';
-     $fields['billing']['billing_email']['placeholder'] = 'exemple@b-bio.com';
+     $fields['billing']['billing_city']['placeholder'] = 'Ville';
+     $fields['billing']['billing_email']['placeholder'] = 'Ville';
 
 
      $fields['shipping']['shipping_first_name']['placeholder'] = 'Prénom';

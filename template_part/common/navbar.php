@@ -7,7 +7,7 @@
 
 <?php the_custom_logo() ?>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu-wrap" aria-controls="primary-menu-wrap" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <i class="fas fa-bars"></i>
         </button>
 <?php
 wp_nav_menu( array(

@@ -7,8 +7,8 @@
     <div id="overlay-front" class="overlay">
 
       <div class="content-header container">
-      <h1 class="titre">Le meilleur du bio, livré à votre domicile </h1>
-      <h3 class="sous-titre">Une alimentation au service de votre santé </h3>
+      <h1 class="titre"><?php the_field('title_heading', 'option') ?></h1>
+      <h3 class="sous-titre"><?php the_field('subtitle_heading', 'option') ?></h3>
       <div class="button-box">
                 <a class="link-unstyled button" href="<?php  echo get_permalink( wc_get_page_id( 'shop' ) ); ?>">
                     <button class="btn-primaire">Commandez !  </button>

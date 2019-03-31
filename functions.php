@@ -59,8 +59,6 @@ function simple_products_query( $q ) {
 }
 
 
-
-
 //add_action( 'init', 'register_supplement_product_type' );
 //add_filter( 'product_type_selector', 'remove_product_types' );
 

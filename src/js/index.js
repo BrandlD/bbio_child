@@ -67,8 +67,6 @@ document.addEventListener("DOMContentLoaded",function(){
         } else if (!document.getElementById("card-"+theid) && theid) {
             document.getElementById("overlay-general").classList.add('overlay');
         }
-        console.log(ajaxurl);
-        console.log(restUrl);
         fetch(ajaxurl, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, cors, *same-origin
@@ -80,9 +78,7 @@ document.addEventListener("DOMContentLoaded",function(){
             body: restUrl
         })
             .then(resp =>  resp.text())
-            .then(data => { 
-                //location.reload();
-            })
+            .then(data => { location.reload();  })
             .catch(err => { console.log(err) });
     }
 

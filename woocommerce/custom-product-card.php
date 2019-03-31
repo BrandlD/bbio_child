@@ -22,7 +22,7 @@ if($_cart_item['product_id'] == get_the_id() ){
 
 
 <!-- definition of the card -->
-<div class="card custom-product-card" id="card-<?php echo get_the_id(); ?>" >
+<div class="card custom-product-card" id="card-<?php echo $product->get_id(); ?>" >
 
 <!-- definition of the img -->
 <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id($product->get_id()), 'single-post-thumbnail' );?>
@@ -35,7 +35,7 @@ if($_cart_item['product_id'] == get_the_id() ){
 <button
         data-action="add"
         data-url="<?php echo admin_url('admin-ajax.php'); ?>"
-        data-item="<?php echo get_the_id() ?>"
+        data-item="<?php echo $product->get_id() ?>"
         href="<?php the_permalink(); ?>" class="qty-btn">
 
 
@@ -55,7 +55,7 @@ if($_cart_item['product_id'] == get_the_id() ){
 <div class="quantity-buttons"> <!-- start of buttons -->
 
 
-<span data-item="<?php echo get_the_id() ?>"
+<span data-item="<?php echo $product->get_id() ?>"
       data-url="<?php echo admin_url('admin-ajax.php'); ?>"
       data-action="add" class="qty-btn">
  <!-- plus sign qty -->
@@ -65,7 +65,7 @@ if($_cart_item['product_id'] == get_the_id() ){
 
 
 <?php if ($cart_item_key) : ?> <!-- less sign qty -->
-<span data-item="<?php echo get_the_id() ?>"
+<span data-item="<?php echo $product->get_id() ?>"
       data-url="<?php echo admin_url('admin-ajax.php'); ?>"
       data-action="remove" class="qty-btn " >
 
@@ -87,10 +87,18 @@ if($_cart_item['product_id'] == get_the_id() ){
 </button>
 
 
+<!-- this one is the overlay that is shown once the product is being added to the crt -->
 <div class="overlay__inner">
 <div class="overlay__content"><span class="spinner"></span></div>
 </div> <!-- end of the overlay  -->
 
+<!-- this one is the overlay that is shown once the product is being added to the crt -->
+<?php if(isset($cart_checkout_id) && is_checkout()) { ?>
+    <div data-item="<?php echo $product->get_id() ?>"
+         data-url="<?php echo admin_url('admin-ajax.php'); ?>"
+         data-action="delete" class="qty-btn remove-hover" >
+    <i class="child fas fa-minus-circle"></i></div>
+<?php  } ?>
 
 </div> <!-- end of the card  -->
 
