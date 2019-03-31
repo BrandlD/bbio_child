@@ -88,7 +88,7 @@
     @include sous-titre-rb($secondary);
     width :100% ;
     margin-bottom : 2em ;
-    .notice { opacity: .6; }
+    .notice { opacity: .6;  font-size : 14px ;}
     }
 
     #notice { margin-top : 2em ; }

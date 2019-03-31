@@ -33,10 +33,16 @@ include get_theme_file_path() . '/remove_cart.php';
 //flush_rewrite_rules( false );
 //
 
+acf_add_options_page(array(
+    'page_title'    => 'Page Contact',
+    'menu_title'    => 'Page Contact',
+    'menu_slug'     => 'theme-general-contact',
+    'icon_url'      => 'dashicons-phone',
+));
 
 acf_add_options_page(array(
     'page_title'    => 'Page Accueil',
-    'menu_title'    => 'Accueil',
+    'menu_title'    => 'Page Accueil',
     'menu_slug'     => 'theme-general-settings',
     'icon_url'      => 'dashicons-images-alt2',
 ));
@@ -77,3 +83,24 @@ function simple_products_query( $q ) {
 
 	//return $types;
 //}
+//
+//
+//
+
+//hiding from the admin-home page for a cleaner look
+
+function remove_menus() {
+    //remove_menu_page( 'index.php' );                  //Dashboard
+    remove_menu_page( 'Jetpack' );                    //Jetpack*
+    remove_menu_page( 'edit.php' );                   //Posts
+    remove_menu_page( 'upload.php' );                 //Media
+    remove_menu_page( 'edit.php?post_type=page' );    //Pages
+    remove_menu_page( 'edit-comments.php' );          //Comments
+    remove_menu_page( 'themes.php' );                 //Appearance
+    //remove_menu_page( 'plugins.php' );                //Plugins
+    //remove_menu_page( 'users.php' );                  //Users
+    remove_menu_page( 'tools.php' );                  //Tools
+    //remove_menu_page( 'options-general.php' );        //Settings
+}
+add_filter('acf/settings/show_admin', '__return_false');
+add_action( 'admin_menu', 'remove_menus' );

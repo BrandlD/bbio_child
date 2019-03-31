@@ -19,20 +19,19 @@
 <div class="row ">
     <div class="col-sm-12 col-md">
         <ul>
-            <li>Accueil</li>
-            <li><a class="link-unstyled" href="">sub-item2</a></li>
-            <li><a class="link-unstyled" href="">sub-item2</a></li>
-            <li><a class="link-unstyled" href="">sub-item2</a></li>
-            <li><a class="link-unstyled" href="">sub-item2</a></li>
+            <li>Site</li>
+            <li><a class="link-unstyled" href="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) ); ?>">Magasin</a></li>
+            <li><a class="link-unstyled" href="<?php echo get_permalink( woocommerce_get_page_id( 'checkout' ) ); ?>">Panier</a></li>
+            <li><a class="link-unstyled" href="/contact/">Contact</a></li>
         </ul>
     </div>
     <div class="col-sm-12 col-md">
         <ul>
-            <li>Site</li>
-            <li><a class="link-unstyled" href="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) ); ?>">Magasin</a></li>
-            <li><a class="link-unstyled" href="/contact/">Contact</a></li>
-            <li><a class="link-unstyled" href="">sub-item2</a></li>
-            <li><a class="link-unstyled" href="">sub-item2</a></li>
+            <li>Accueil</li>
+            <li><a class="link-unstyled" href="/#carousel-header">Accueil</a></li>
+            <li><a class="link-unstyled" href="/#about">À propos</a></li>
+            <li><a class="link-unstyled" href="/#testimonials">Témoignages</a></li>
+            <li><a class="link-unstyled" href="/#blogs">Articles</a></li>
         </ul>
     </div>
     <div class="col-sm-12 col-md">
@@ -40,8 +39,6 @@
             <li>Légal</li>
             <li><a class="link-unstyled" href="/cgu-cgv">CGV</a></li>
             <li><a class="link-unstyled" href="/cgu-cgv">CGU</a></li>
-            <li><a class="link-unstyled" href="">Plan du site</a></li>
-            <li><a class="link-unstyled" href="">sub-item2</a></li>
         </ul>
     </div>
 </div>

@@ -1,8 +1,19 @@
-  <div id="carousel-header" data-ride="carousel" class="carousel slide" >
+  <div id="carousel-header" data-ride="carousel" class="carousel carousel-fade slide" >
     <div class="carousel-inner" role="listbox">
-      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')"> </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')"> </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')"> </div>
+
+<?php
+$images = get_field('imgs_header', 'option');
+$size = 'full'; // (thumbnail, medium, large, full or custom size)
+$count=0;
+if( $images ): ?>
+        <?php foreach( $images as $image ): ?>
+        <div  class="carousel-item <?php if($count==0){ echo 'active' ;} ?>" >
+            <video  muted src="<?php echo $image['url'] ?>" autoplay="" loop=""> </video>
+        </div>
+        <?php $count++; ?>
+        <?php endforeach; ?>
+<?php endif; ?>
+
     </div>
     <div id="overlay-front" class="overlay">
 

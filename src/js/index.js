@@ -1,4 +1,11 @@
+jQuery(document).ready(function( $ ) {
+    $('.carousel').carousel({ 
+        pause: "false", 
+        interval : 7000,
+    });
+});
 document.addEventListener("DOMContentLoaded",function(){
+
     const nav = document.querySelector('#site-navigation')
     document.addEventListener('scroll', function () {
         ( nav.offsetTop - window.scrollY  )  < 10  ? 
