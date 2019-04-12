@@ -3,7 +3,13 @@ jQuery(document).ready(function( $ ) {
         pause: "false", 
         interval : 7000,
     });
+    $('.dropdown').on('hidden.bs.dropdown', function () {
+        alert('value');
+     });
 });
+
+
+
 document.addEventListener("DOMContentLoaded",function(){
 
     const nav = document.querySelector('#site-navigation')

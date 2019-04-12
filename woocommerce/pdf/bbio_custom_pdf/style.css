@@ -289,3 +289,10 @@ table.head.container { border-bottom : 5px solid green ; }
 .header a {
   text-decoration-color : green ;
 }
+
+
+.bold {
+  /*color : red ;*/
+  font-weight : bold;
+  /*text-decoration : underline ;*/
+}

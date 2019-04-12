@@ -157,6 +157,10 @@ span.onsale { display : none !important ;}
             @include button-secondary();
             font-size : 16px ;
             height : 100%;
+            @media only screen and (max-width : $media-sm) {
+                margin-top : 16px ;
+                width : 100%;
+            }
         }
         button.qty-btn {
             @include button-woo() ;
@@ -276,6 +280,12 @@ span.onsale { display : none !important ;}
             font-size  :1.3em ;
             transition : opacity .3s ease-in ;
         }
+        @media only screen and (max-width : $media-md ) {
+            .remove-hover {
+                opacity : .9;
+            }
+        }
+
         &:hover {
             .remove-hover {
                 opacity : .9;
@@ -352,6 +362,8 @@ span.onsale { display : none !important ;}
     -ms-transition: all .5s ease;
 
     .wc_payment_method,
+    #billing_company_field ,
+    #shipping_company_field ,
     #billing_country_field,
     #shipping_country_field { display : none ;}
 
@@ -385,5 +397,27 @@ span.onsale { display : none !important ;}
     }
 
 
+    .woocommerce-column.woocommerce-column--2.woocommerce-column--shipping-address,
     footer.entry-footer { display : none ;}
+}
+
+
+.error404 {
+    #content {
+        display: flex ;
+        justify-content : center ;
+        //text-align : center ;
+        min-height : 60vh ;
+        width : 100%; }
+    .page-wrapper {
+        border-left : 5px solid $green ;
+        padding-left : 25px ;
+        padding-top : 25px ;
+        padding-bottom : 25px ;
+        margin : auto ;
+    }
+    h2 { @include titre-rb();}
+    p { @include sous-titre-rb($secondary);}
+    a.home_link { @include button-secondary(); }
+
 }

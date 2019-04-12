@@ -1,7 +1,7 @@
 <?php
+
 add_action( 'woocommerce_before_add_to_cart_form', 'add_button', 5 );
-function add_button() {
-    wc_get_template_part( './single_add_button' );
+    function add_button() { wc_get_template_part( './single_add_button' );
 }
 
 

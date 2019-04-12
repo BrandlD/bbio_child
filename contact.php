@@ -19,7 +19,7 @@
     <li><a
         class='link-unstyled'
         target="_blank"
-        href="https://www.facebook.com/jessica.nassen">
+        href="https://www.facebook.com/BbioHerstal">
         <i class="fab fa-facebook"></i><?php the_field('facebook_texte', 'option'); ?></a>
     </li>
     <li><a

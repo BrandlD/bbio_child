@@ -36,6 +36,8 @@ nav#site-navigation {
       text-align: center;
       margin :0 ;
       padding :0 ;
+      font-size : 18px !important ;
+      text-decoration : underline ;
     }
     a:hover { border-bottom  : 5px solid $green; }
     ul#primary-menu {
@@ -142,3 +144,6 @@ nav#site-navigation {
 
 
 }
+
+
+ul.dropdown-menu.depth_0 { display : relative ;}

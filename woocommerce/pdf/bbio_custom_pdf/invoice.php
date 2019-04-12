@@ -1,6 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 <?php do_action( 'wpo_wcpdf_before_document', $this->type, $this->order ); ?>
 
+
+
 <table class="head container">
 	<tr>
 		<td class="header">
@@ -15,12 +17,14 @@
 	</tr>
 </table>
 
-<h1 class="document-type-label">
-<?php if( $this->has_header_logo() ) echo $this->get_title(); ?>
-</h1>
+
+<h1 class="document-type-label"> <?php if( $this->has_header_logo() ) echo $this->get_title(); ?> </h1>
 
 <?php do_action( 'wpo_wcpdf_after_document_label', $this->type, $this->order ); ?>
 
+<?php $string_num ?>
+<div class="muted">Numéro de facture : <?php echo $this->order_number(); ?></div>
+<hr>
 <div class="muted"> A destination de :</div>
 <table class="order-data-addresses">
 	<tr>
@@ -35,6 +39,15 @@
 			<?php if ( isset($this->settings['display_phone']) ) { ?>
 			<div class="billing-phone"><?php $this->billing_phone(); ?></div>
 			<?php } ?>
+
+
+			<?php if ( $this->order->get_meta('nom_soc')) { ?>
+      <hr>
+      <b>ENTREPRISE</b>
+      <div class="billing-tva">Numéro de TVA : <?php echo $this->order->get_meta('num_tva'); ?> </div>
+      <div class="billing-soc">Nom de la SOCIÉTÉ : <?php echo $this->order->get_meta('nom_soc'); ?> </div>
+			<?php } ?>
+
 		</td>
 		<td class="address shipping-address">
 			<?php if ( isset($this->settings['display_shipping_address']) && $this->ships_to_different_address()) { ?>
@@ -135,7 +148,9 @@
 		</tr>
 	</tfoot>
 </table>
-
+<div class="bold">
+Si vous procedez par virement bancaire, merci d'indiquer le numéro de commande "<?php $this->order_number(); ?>" en communication.
+</div>
 <?php do_action( 'wpo_wcpdf_after_order_details', $this->type, $this->order ); ?>
 
 <?php if ( $this->get_footer() ): ?>
