@@ -154,7 +154,7 @@ Si vous procedez par virement bancaire, merci d'indiquer le numéro de commande 
 <?php do_action( 'wpo_wcpdf_after_order_details', $this->type, $this->order ); ?>
 
 <?php if ( $this->get_footer() ): ?>
-<div id="footer">
+<div id="footer" style="height :auto ;">
 	<?php $this->footer(); ?>
 </div><!-- #letter-footer -->
 <?php endif; ?>

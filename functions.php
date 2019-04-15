@@ -19,11 +19,37 @@ include get_theme_file_path() . '/remove_cart.php';
 add_action( 'init', 'register_supplement_product_type' );
 add_filter( 'product_type_selector', 'remove_product_types' );
 
+
 function register_supplement_product_type() {
-    class WC_Product_Supplement extends WC_Product_Simple {
+    class WC_Product_Supplement extends WC_Product {
+
         public function __construct( $product ) {
             $this->product_type = 'supplement';
-            parent::__construct( $product ); } } }
+            parent::__construct( $product );
+
+        }
+        public function add_to_cart_url() { // this is to make sure the custom product type has an add-to-cart
+            $url = $this->is_purchasable() && $this->is_in_stock() ? remove_query_arg( 'added-to-cart', add_query_arg( 'add-to-cart', $this->id ) ) : get_permalink( $this->id );
+            return apply_filters( 'woocommerce_product_add_to_cart_url', $url, $this );
+        }
+
+    }
+
+}
+
+add_action( 'woocommerce_single_product_summary', 'custom_product_add_to_cart', 60 );
+function custom_product_add_to_cart () {
+    global $product;
+
+    // Make sure it's our custom product type
+    if ( 'supplement' == $product->get_type() ) {
+        do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+
+        <?php wc_get_template_part( './single_add_button' ); ?>
+
+        <?php do_action( 'woocommerce_after_add_to_cart_button' );
+    }
+}
 
 function remove_product_types( $types ){
     unset( $types['external'] );
@@ -42,7 +68,7 @@ function simple_supplement_custom_js() {
             ?><script type='text/javascript'>
         jQuery( document ).ready( function() {
             jQuery( '.product_data_tabs .general_tab' ).addClass( 'show_if_supplement' ).show();
-            jQuery( '.options_group.pricing' ).addClass( 'show_if_supplement' ).show();
+            jQuery( '.options_group.show_if_simple' ).addClass( 'show_if_supplement' ).show();
             jQuery( '.inventory_options' ).addClass( 'show_if_supplement' ).show();
         });
     </script><?php
@@ -59,7 +85,7 @@ function remove_menus() {
     remove_menu_page( 'edit.php?post_type=page' );    //Pages
     remove_menu_page( 'edit-comments.php' );          //Comments
     //remove_menu_page( 'themes.php' );                 //Appearance
-    remove_menu_page( 'plugins.php' );                //Plugins
+    //remove_menu_page( 'plugins.php' );                //Plugins
     //remove_menu_page( 'users.php' );                  //Users
     remove_menu_page( 'tools.php' );                  //Tools
     remove_menu_page( 'options-general.php' );        //Settings
@@ -171,7 +197,7 @@ function change_woocommerce_order_number( $order_id ) {
 
             $order = wc_get_order( $order_id );
             $order_dt = $order->get_date_created()->format ('ym');
-            $date_created = $order->get_date_created()->format ( 'Y-m-d' );
+            $date_created = $order->get_date_created()->format ( 'Y-m' );
             $query        = "SELECT ID FROM {$wpdb->prefix}posts WHERE post_date LIKE '%".$date_created."%' AND post_type='shop_order' ORDER BY ID ";
             $result       = $wpdb->get_results( $query );
             $count        = 0;
@@ -183,6 +209,6 @@ function change_woocommerce_order_number( $order_id ) {
                 }
             }
 
-            $new_order_id = $order_dt . str_pad( strval($count),2,strval(0), STR_PAD_LEFT) ;
+            $new_order_id = $order_dt . str_pad( strval($count),3,strval(0), STR_PAD_LEFT) ;
             return $new_order_id;
 }
